@@ -2,21 +2,21 @@
 
 ## Business Problem
 
-Loan defaults lead to significant financial losses for lending institutions.  
-The objective of this project is to analyze borrower data, predict the probability of loan default, and segment applicants into risk categories to support data-driven credit decisions.
+Loan defaults lead to significant financial losses for financial institutions.  
+The objective of this project is to predict the probability of loan default and segment borrowers into risk categories to support data-driven lending decisions.
 
-This project aims to:
+The solution aims to:
 
 - Minimize default risk  
 - Improve portfolio stability  
 - Enhance risk visibility  
-- Enable smarter lending decisions  
+- Support smarter credit approval decisions  
 
 ---
 
 ## Dataset Overview
 
-The dataset contains borrower-level attributes including:
+The dataset contains borrower-level financial and demographic attributes:
 
 - person_age  
 - person_income  
@@ -33,41 +33,102 @@ The dataset contains borrower-level attributes including:
 
 ---
 
-## Tools & Technologies Used
+## Tools & Technologies
 
-- Python  
-- SQL (MySQL via SQLAlchemy)  
-- Power BI  
-- Jupyter Notebook  
+- **Python** (pandas, numpy, scikit-learn, xgboost, matplotlib)
+- **SQL** (MySQL via SQLAlchemy)
+- **Power BI**
+- **Jupyter Notebook**
 
 ---
 
-## Project Approach
+## Project Workflow
 
-### 1. Data Cleaning (Python)
+### 1. Data Cleaning & Preparation (Python)
 
-Handled missing values using median imputation and removed invalid records.  
-Exported cleaned dataset for structured analysis.
+- Handled missing values using median imputation  
+- Removed invalid and inconsistent records  
+- Ensured correct data types  
+- Exported cleaned dataset  
+
+Output: `data_clean/credit_risk_clean.csv`
+
+---
 
 ### 2. SQL-Based Business Aggregation
 
-Loaded clean data into MySQL and performed segment-level aggregations using GROUP BY queries to compute default rates across key borrower attributes.
+- Loaded cleaned data into MySQL database  
+- Performed segment-level aggregations using GROUP BY queries  
+- Calculated default rate by:
+  - loan_grade  
+  - loan_intent  
+  - prior default history  
 
-### 3. Machine Learning Modeling
+This step enabled structured business analysis using SQL.
 
-Built and evaluated Logistic Regression, Random Forest, and XGBoost using ROC-AUC, confusion matrix, and classification metrics.
+---
 
-### 4. Risk Segmentation
+### 3. Exploratory Data Analysis (EDA)
 
-Applicants were categorized into:
+Analyzed borrower attributes to identify patterns in default behavior.
 
-- Low Risk (< 0.20)  
-- Medium Risk (0.20–0.50)  
-- High Risk (≥ 0.50)  
+Key insights:
 
-### 5. Power BI Dashboard
+- Higher loan grades are associated with increased default risk  
+- Certain loan intents show higher default rates  
+- Previous default history significantly increases risk  
 
-Built an interactive dashboard showing KPIs, default trends, and risk segmentation insights.
+---
+
+### 4. Machine Learning Modeling
+
+Built and evaluated multiple classification models:
+
+- Logistic Regression  
+- Random Forest  
+- XGBoost  
+
+**Evaluation Metrics:**
+
+- ROC-AUC  
+- Confusion Matrix  
+- Precision, Recall, F1-score  
+
+**Sample Performance (Logistic Regression):**
+
+- ROC-AUC: 0.87  
+- Accuracy: 87%  
+- Strong discrimination between defaulters and non-defaulters  
+
+---
+
+### 5. Risk Segmentation
+
+Based on predicted default probability:
+
+- Low Risk → probability < 0.20  
+- Medium Risk → 0.20–0.50  
+- High Risk → ≥ 0.50  
+
+This segmentation supports actionable lending decisions.
+
+Output: `data_scored/credit_risk_scored.csv`
+
+---
+
+### 6. Power BI Dashboard
+
+Developed an interactive dashboard displaying:
+
+- Total Loans  
+- Default Rate  
+- Average Loan Amount  
+- Risk Band Distribution  
+- Default Rate by Loan Grade  
+- Default Rate by Loan Intent  
+- Interactive slicers for dynamic filtering  
+
+Dashboard file: `powerbi/credit_risk_dashboard.pbix`
 
 ---
 
