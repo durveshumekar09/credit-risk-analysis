@@ -1,4 +1,4 @@
-Credit Risk / Loan Default Risk Analysis
+#Credit Risk / Loan Default Risk Analysis
 Business Problem
 
 Loan defaults lead to significant financial losses for lending institutions. The objective of this project is to analyze borrower data, predict the probability of loan default, and segment applicants into risk categories to support data-driven credit decisions.
