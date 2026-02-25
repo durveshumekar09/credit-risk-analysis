@@ -133,3 +133,37 @@ Dashboard file: `powerbi/credit_risk_dashboard.pbix`
 ---
 
 ## Project Structure
+credit-risk-analysis/
+│
+├── data_raw/
+├── data_clean/
+├── data_scored/
+├── notebooks/
+├── models/
+├── screenshots/
+├── sql/
+└── powerbi/
+
+
+---
+
+## Key Business Insights
+
+- Loan grade and prior default history strongly influence default probability  
+- Risk segmentation improves prioritization of high-risk applicants  
+- Predictive modeling enhances decision-making beyond descriptive analytics  
+
+---
+
+## Conclusion
+
+This project demonstrates an end-to-end credit risk analytics pipeline combining:
+
+- Data preparation  
+- SQL-based aggregation  
+- Predictive modeling  
+- Risk probability estimation  
+- Risk segmentation  
+- Business intelligence visualization  
+
+The solution integrates technical modeling with business interpretation to support real-world credit risk management.
